@@ -16,9 +16,12 @@ script:
   - docker build -t "$DOCKER_USER"/udagram-feed:prod .
   - cd $TRAVIS_BUILD_DIR/udagram-micro-frontend
   - docker build -t "$DOCKER_USER"/udagram-frontend:prod .
+  - cd $TRAVIS_BUILD_DIR/udagram-micro-deployment/docker
+  - docker build -t "$DOCKER_USER"/udagram-reverseproxy:prod .
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USER" --password-stdin
   - docker push "$DOCKER_USER"/udagram-frontend:prod
   - docker push "$DOCKER_USER"/udagram-user:prod
   - docker push "$DOCKER_USER"/udagram-feed:prod
+  - docker push "$DOCKER_USER"/udagram-reverseproxy:prod
