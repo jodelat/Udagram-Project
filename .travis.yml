@@ -20,7 +20,7 @@ script:
   - docker build -t "$DOCKER_USER"/udagram-user:prod .
   - cd $TRAVIS_BUILD_DIR/udagram-micro-api-feed
   - docker build -t "$DOCKER_USER"/udagram-feed:prod .
-  - $TRAVIS_BUILD_DIR/udagram-mirco-frontend
+  - cd $TRAVIS_BUILD_DIR/udagram-mirco-frontend
   - docker build -t "$DOCKER_USER"/udagram-frontend:prod .
 
 after_success:
