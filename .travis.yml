@@ -11,44 +11,16 @@ services:
  before_script:
     -echo "no tests"
 
- stage:
-   -user
-   -feed
-   -frontend
+ script:
+   -echo pwd
+   -docker --version
+   -docker build -t "$DOCKER_USER"/udagram-user:prod ./udagram-mirco-api-user
+   -docker build -t "$DOCKER_USER"/udagram-feed:prod ./udagram-micro-api-feed
+   -docker build -t "$DOCKER_USER"/udagram-frontend:prod ./udagram-mirco-frontend
 
 
-
-jobs:
-  include:
-    -stage: user
-    name: "user backend service"
-    script:
-      -echo pwd
-      -docker --version
-      -docker build -t "$DOCKER_USER"/udagram-user:prod
-      ./udagram-mirco-api-user
-    after_success:
-      -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-      -docker push "$DOCKER_USER"/udagram-user:prod
-
-    -stage: feed
-    name: "user feed service"
-    script:
-      -echo pwd
-      -docker --version
-      -docker build -t "$DOCKER_USER"/udagram-feed:prod
-      ./udagram-micro-api-feed
-    after_success:
-      -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-      -docker push "$DOCKER_USER"/udagram-feed:prod
-
-    -stage: frontend
-    name: "frontend application"
-    script:
-      -echo pwd
-      -docker --version
-      -docker build -t "$DOCKER_USER"/udagram-frontend:prod
-      ./udagram-mirco-frontend
-    after_success:
-      -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password stdin
-      -docker push "$DOCKER_USER"/udagram-frontend:prod
+after_success:
+  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password stdin
+  -docker push "$DOCKER_USER"/udagram-frontend:prod
+  -docker push "$DOCKER_USER"/udagram-user:prod
+  -docker push "$DOCKER_USER"/udagram-feed:prod
