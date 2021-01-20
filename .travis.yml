@@ -4,11 +4,12 @@ node_js:
 
 services:
   - docker
-  - 
+
 script:
   - echo pwd
   - docker --version
-  - echo $TRAVIS_BUILD_DIR
+  - cd $TRAVIS_BUILD_DIR
+  - ls -a
   - cd $TRAVIS_BUILD_DIR/udagram-mirco-api-user
   - docker build -t "$DOCKER_USER"/udagram-user:prod .
   - cd $TRAVIS_BUILD_DIR/udagram-micro-api-feed
