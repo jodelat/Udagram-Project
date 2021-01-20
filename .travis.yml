@@ -16,9 +16,12 @@ before_script:
 script:
   - echo pwd
   - docker --version
-  - docker build -t "$DOCKER_USER"/udagram-user:prod ./udagram-mirco-api-user
-  - docker build -t "$DOCKER_USER"/udagram-feed:prod ./udagram-micro-api-feed
-  - docker build -t "$DOCKER_USER"/udagram-frontend:prod ./udagram-mirco-frontend
+  - cd $TRAVIS_BUILD_DIR/udagram-mirco-api-user
+  - docker build -t "$DOCKER_USER"/udagram-user:prod .
+  - cd $TRAVIS_BUILD_DIR/udagram-micro-api-feed
+  - docker build -t "$DOCKER_USER"/udagram-feed:prod .
+  - $TRAVIS_BUILD_DIR/udagram-mirco-frontend
+  - docker build -t "$DOCKER_USER"/udagram-frontend:prod .
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password stdin
