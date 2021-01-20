@@ -4,18 +4,11 @@ node_js:
 
 services:
   - docker
-
-#Pretesting Installs
-install:
- - echo "nothing needs to be installed"
-
- #Scripts to be run such as tests
-before_script:
-  - echo "no tests"
-
+  - 
 script:
   - echo pwd
   - docker --version
+  - echo $TRAVIS_BUILD_DIR
   - cd $TRAVIS_BUILD_DIR/udagram-mirco-api-user
   - docker build -t "$DOCKER_USER"/udagram-user:prod .
   - cd $TRAVIS_BUILD_DIR/udagram-micro-api-feed
