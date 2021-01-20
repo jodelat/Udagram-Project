@@ -10,11 +10,11 @@ script:
   - docker --version
   - cd $TRAVIS_BUILD_DIR
   - ls -a
-  - cd $TRAVIS_BUILD_DIR/udagram-mirco-api-user
+  - cd $TRAVIS_BUILD_DIR/udagram-micro-api-user
   - docker build -t "$DOCKER_USER"/udagram-user:prod .
   - cd $TRAVIS_BUILD_DIR/udagram-micro-api-feed
   - docker build -t "$DOCKER_USER"/udagram-feed:prod .
-  - cd $TRAVIS_BUILD_DIR/udagram-mirco-frontend
+  - cd $TRAVIS_BUILD_DIR/udagram-micro-frontend
   - docker build -t "$DOCKER_USER"/udagram-frontend:prod .
 
 after_success:
