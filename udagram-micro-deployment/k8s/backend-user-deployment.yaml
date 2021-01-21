@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
@@ -53,14 +53,14 @@ spec:
                 configMapKeyRef:
                   name: env-config
                   key: POSTGRESS_HOST
-          # - name: POSTGRESS_PASSWORD
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: env-secret
-          #       key: POSTGRESS_PASSWORD
-          # - name: POSTGRESS_USERNAME
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: env-secret
-          #       key: POSTGRESS_USERNAME
+           - name: POSTGRESS_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: env-secret
+                 key: POSTGRESS_PASSWORD
+           - name: POSTGRESS_USERNAME
+             valueFrom:
+               secretKeyRef:
+                 name: env-secret
+                 key: POSTGRESS_USERNAME
       restartPolicy: Always
