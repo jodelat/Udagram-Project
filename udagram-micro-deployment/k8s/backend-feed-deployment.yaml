@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,13 +6,16 @@ metadata:
   name: backend-feed
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      service: backend-feed
   template:
     metadata:
       labels:
         service: backend-feed
     spec:
       containers:
-        - image: jodelat/udagram-feed
+        - image: jodelat/udagram-feed:prod
           name: backend-feed
           imagePullPolicy: Always
           resources:
@@ -68,16 +71,16 @@ spec:
                 configMapKeyRef:
                   name: env-config
                   key: POSTGRESS_USERNAME
-           - name: POSTGRESS_PASSWORD
-             valueFrom:
-               secretKeyRef:
-                 name: env-secret
-                 key: POSTGRESS_PASSWORD
-           - name: POSTGRESS_USERNAME
-             valueFrom:
-               secretKeyRef:
-                 name: env-secret
-                 key: POSTGRESS_USERNAME
+            - name: POSTGRESS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: env-secret
+                  key: POSTGRESS_PASSWORD
+            - name: POSTGRESS_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: env-secret
+                  key: POSTGRESS_USERNAME
           volumeMounts:
             - name: aws-secret
               mountPath: "~/.aws/"
