@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50c0f27b-f065-4fd9-a991-4f8b49cc2d24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/udagram-micro-api-feed/src/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/udagram-micro-api-feed/src/config/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/udagram-micro-api-user/src/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/udagram-micro-api-user/src/config/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/docker-hub-udagram-feed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/docker-hub-udagram-user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/docker-hub-udagram=frontend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/kubernetes-logs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/kubernetes-pods.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/kubernetes-services1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/kubernetes-services2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/travis-pipeline-build.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/travis-pipeline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/udagram-micro-deployment/k8s/backend-feed-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/udagram-micro-deployment/k8s/backend-feed-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/udagram-micro-deployment/k8s/backend-user-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/udagram-micro-deployment/k8s/backend-user-service.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +67,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshots" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/udagram-micro-api-user" />
     </key>
@@ -69,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611078394620</updated>
-      <workItem from="1611078396130" duration="27896000" />
+      <workItem from="1611078396130" duration="30147000" />
     </task>
     <servers />
   </component>
